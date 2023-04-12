@@ -9,7 +9,7 @@
 funct_pointer_t get_req_funct(const char c)
 {
 	int i;
-	associate_t asst_arr[] = {{'c', chr}, /*{'d', dp}, {'i', dp},*/ {'s', str},
+	associate_t asst_arr[] = {{'c', chr}, {'d', dp}, {'i', ip}, {'s', str},
 				{'%', pc}, {'\0', NULL}};
 	i = 0;
 	while (asst_arr[i].func_point)
