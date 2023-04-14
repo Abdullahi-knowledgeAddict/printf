@@ -14,7 +14,9 @@ int _printf(const char *format, ...)
 
 	match_func = NULL;
 	va_start(v, format);
-	 copy = (char *) format;
+	copy = (char *) format;
+	if (format == NULL)
+		return (0);
 	for (byte_count = 0; *copy; copy++)
 	{
 		if (*copy == '%')

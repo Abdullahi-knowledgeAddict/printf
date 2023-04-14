@@ -45,6 +45,11 @@ int str(va_list v)
 	int count;
 
 	s = va_arg(v, char *);
+	if (s == NULL)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
 	for (count = 0; *s; s++, count++)
 		write(1, s, sizeof(char));
 	return (count);
