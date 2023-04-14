@@ -5,7 +5,7 @@
  * this is a support function for the main (%i and %d) format specifier fnctns
  * @i: a positive integer
  */
-void ips(int i)
+void ips(long int i)
 {
 	char c;
 
@@ -26,15 +26,14 @@ void ips(int i)
  */
 int dp(va_list v)
 {
-	int i, size;
-	char c;
+	long int i;
+	int size;
 
-	c = '-';
-	i = va_arg(v, int);
+	i = va_arg(v, long int);
 	if (i < 0)
 	{
 		i = -i;
-		write(1, &c, 1);
+		write(1, "-", 1);
 	}
 	ips(i);
 	for (size = 1; i >= 10; size++)
@@ -49,15 +48,14 @@ int dp(va_list v)
  */
 int ip(va_list v)
 {
-	int i, size;
-	char c;
+	int size;
+	long int i;
 
-	c = '-';
-	i = va_arg(v, int);
+	i = va_arg(v, long int);
 	if (i < 0)
 	{
 		i = -i;
-		write(1, &c, 1);
+		write(1, "-", 1);
 	}
 	ips(i);
 	for (size = 1; i >= 10; size++)

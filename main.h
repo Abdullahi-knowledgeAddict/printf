@@ -24,7 +24,7 @@ int chr(va_list);
 int pc(va_list v);
 int dp(va_list v);
 int ip(va_list v);
-void ips(int);
+void ips(long int);
 int str(va_list);
 /* formatting functions end here! */
 
