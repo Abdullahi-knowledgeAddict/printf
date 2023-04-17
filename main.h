@@ -23,9 +23,11 @@ int _printf(const char *format, ...);
 int chr(va_list);
 int pc(va_list v);
 int dp(va_list v);
+int pb(va_list v);
 int ip(va_list v);
 void ips(long int);
 int str(va_list);
+int sb(va_list v);
 /* formatting functions end here! */
 
 #endif /* MAIN_H */
