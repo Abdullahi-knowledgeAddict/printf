@@ -20,14 +20,19 @@ typedef struct life
 /* formatting functions and function to get them */
 funct_pointer_t get_req_funct(const char);
 int _printf(const char *format, ...);
+int nsc(va_list, int, int);
+void ips(unsigned int);
 int chr(va_list);
-int pc(va_list v);
-int dp(va_list v);
-int pb(va_list v);
-int ip(va_list v);
-void ips(long int);
+int dp(va_list);
+int ip(va_list);
+int pc(va_list);
+int pb(va_list);
+int po(va_list);
+int px(va_list);
+int pX(va_list);
 int str(va_list);
-int sb(va_list v);
+int sb(va_list);
+int up(va_list);
 /* formatting functions end here! */
 
 #endif /* MAIN_H */

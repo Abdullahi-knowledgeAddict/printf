@@ -5,7 +5,7 @@
  * this is a support function for the main (%i and %d) format specifier fnctns
  * @i: a positive integer
  */
-void ips(long int i)
+void ips(unsigned int i)
 {
 	char c;
 
@@ -57,6 +57,22 @@ int ip(va_list v)
 		i = -i;
 		write(1, "-", 1);
 	}
+	ips(i);
+	for (size = 1; i >= 10; size++)
+		i = i / 10;
+	return (size);
+}
+/**
+ * up - function for unsigned format specifier
+ * @v: variable storing the varags/ variable arguement
+ * Return: the size of an integer
+ */
+int up(va_list v)
+{
+	int size;
+	unsigned int i;
+
+	i = va_arg(v, unsigned int);
 	ips(i);
 	for (size = 1; i >= 10; size++)
 		i = i / 10;

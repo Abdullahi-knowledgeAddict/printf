@@ -9,8 +9,9 @@
 funct_pointer_t get_req_funct(const char c)
 {
 	int i;
-	associate_t asst_arr[] = {{'c', chr}, {'d', dp}, {'i', ip}, {'s', str},
-				{'%', pc}, {'b', pb}, {'\0', NULL}};
+	associate_t asst_arr[] = {{'%', pc}, {'c', chr}, {'d', dp}, {'i', ip},
+				{'s', str}, {'u', up}, {'b', pb}, {'o', po},
+				{'x', px}, {'X', pX}, {'\0', NULL}};
 	i = 0;
 	while (asst_arr[i].func_point)
 	{
@@ -67,32 +68,4 @@ int pc(va_list v __attribute__ ((unused)))
 	c = '%';
 	write(1, &c, sizeof(char));
 	return (1);
-}
-/**
- * pb - custom conversion specifier; formating unsigned int to binary
- * @v: the pointer to the present argument of the variadic arguments
- * Return: the number of byte "formatted to stdout"
- */
-int pb(va_list v)
-{
-	unsigned int i, i2;
-	char *s; /* pointer to buffer */
-	int buff_size, buff_size_copy; /* size of buffer to store string */
-
-	i2 = i = va_arg(v, unsigned int);
-	for (buff_size = 0; i > 0; buff_size++)
-		i = i / 2; /* get the the buffer required size */
-	s = malloc(sizeof(char) * buff_size);
-	if (s == NULL)
-		return (0);
-	buff_size_copy = buff_size; /* backing up size */
-	s[buff_size--] = '\0'; /* buff_size amaze me alot since, due sz space*/
-	while (buff_size >= 0)  /*converting the unsigned int to bin in buff*/
-	{
-		s[buff_size--] = (i2 % 2) + '0';
-		i2 = i2 / 2;
-	}
-	write(1, s, buff_size_copy); /* writing to stdout */
-	free(s); /* free buffer */
-	return (buff_size_copy);
 }
