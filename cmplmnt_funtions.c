@@ -42,17 +42,18 @@ int chr(va_list v)
  */
 int str(va_list v)
 {
-	char *s; /* a buffer to store the present variadic argument */
+	char *s, *str; /* a buffer to store the present variadic argument */
 	int count;
 
-	s = va_arg(v, char *);
+	s = str = va_arg(v, char *);
 	if (s == NULL)
 	{
 		write(1, "(null)", 6);
 		return (6);
 	}
-	for (count = 0; *s; s++, count++)
-		write(1, s, sizeof(char));
+	for (count = 0; *s; s++)
+	       	count++;
+	write(1, str, count * sizeof(char));
 	return (count);
 }
 
