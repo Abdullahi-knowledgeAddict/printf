@@ -17,6 +17,11 @@ int pp(va_list v)
 /*taught, in primary schools { divide by 16, and keep remainder}*/
 
 	addr = addr_cp = va_arg(v, unsigned long);
+	if (!addr)
+	{
+		write(1, "(nil)", 5);
+		return (5);
+	}
 	for (len = 2; addr_cp > 0; len++)/*getting the length of buffer req*/
 		addr_cp /= 16;
 	/*I added, to more bytes, to compensate for the "0x"that always*/
