@@ -11,7 +11,8 @@ funct_pointer_t get_req_funct(const char c)
 	int i;
 	associate_t asst_arr[] = {{'%', pc}, {'c', chr}, {'d', dp}, {'i', ip},
 				{'s', str}, {'u', up}, {'b', pb}, {'o', po},
-				{'x', px}, {'X', pX}, {'\0', NULL}};
+				{'x', px}, {'X', pX}, {'p', pp},
+				{'\0', NULL}};
 	i = 0;
 	while (asst_arr[i].func_point)
 	{
@@ -52,7 +53,7 @@ int str(va_list v)
 		return (6);
 	}
 	for (count = 0; *s; s++)
-	       	count++;
+		count++;
 	write(1, str, count * sizeof(char));
 	return (count);
 }

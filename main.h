@@ -33,6 +33,9 @@ int pX(va_list);
 int str(va_list);
 int sb(va_list);
 int up(va_list);
+int pp(va_list);
+int pr(va_list);
+int pR(va_list);
 /* formatting functions end here! */
 
 #endif /* MAIN_H */

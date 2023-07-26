@@ -10,11 +10,11 @@
  */
 int nsc(va_list v, int  base, int X)
 {
-	unsigned int i, i2;
+	unsigned long i, i2;
 	char *s; /* pointer to buffer */
 	int buff_size, buff_size_copy; /* size of buffer to store string */
 
-	i2 = i = va_arg(v, unsigned int);
+	i2 = i = va_arg(v, unsigned long);
 	for (buff_size = 0; i > 0; buff_size++)
 		i = i / base; /* get the the buffer required size */
 	s = malloc(sizeof(char) * buff_size);
