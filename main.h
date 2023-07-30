@@ -4,9 +4,22 @@
 #include <unistd.h>
 #include <stdarg.h>
 
-typedef int (*funct_pointer_t)(va_list);/* a type to dclr the fnctn pointer */
+
 /**
- * struct life - assocites a char to matching formating function
+ * struct flag - associates a flag (char) to a boolean, true/false
+ * @f: the character that represents the flag.
+ * @b: the switch that indicates the presence of the flag
+ */
+typedef struct flag
+{
+	char f;
+	short b;
+}flag_t;	/* a type to declare this struct at any instant*/
+
+typedef int (*funct_pointer_t)(va_list, flag_t *);/* a type to dclr the fnctn pointer */
+
+/**
+ * struct life - associates a char to matching formating function
  * @c: the char for format specification
  * @func_point: pointer to the matching formating function
  */
@@ -14,28 +27,30 @@ typedef struct life
 {
 	char c;
 	funct_pointer_t func_point;
-} associate_t;			/* a type do declare this field at any time */
+} associate_t;	/* a type to declare this field at any time */
+
 
 
 /* formatting functions and function to get them */
-funct_pointer_t get_req_funct(const char);
+funct_pointer_t get_req_funct(char **, flag_t *);
 int _printf(const char *format, ...);
 int nsc(va_list, int, int);
 void ips(unsigned int);
-int chr(va_list);
-int dp(va_list);
-int ip(va_list);
-int pc(va_list);
-int pb(va_list);
-int po(va_list);
-int px(va_list);
-int pX(va_list);
-int str(va_list);
-int sb(va_list);
-int up(va_list);
-int pp(va_list);
-int pr(va_list);
-int pR(va_list);
+int chr(va_list, flag_t *);
+int dp(va_list, flag_t *);
+int ip(va_list, flag_t *);
+int pc(va_list, flag_t *);
+int pb(va_list, flag_t *);
+int po(va_list, flag_t *);
+int px(va_list, flag_t *);
+int pX(va_list, flag_t *);
+int str(va_list, flag_t *);
+int sb(va_list, flag_t *);
+int up(va_list, flag_t *);
+int pp(va_list, flag_t *);
+int pr(va_list, flag_t *);
+int pR(va_list, flag_t *);
+void de_init(flag_t *); /*unflags flags, so they don't conflict for the next conversion specifier.*/
 /* formatting functions end here! */
 
 #endif /* MAIN_H */

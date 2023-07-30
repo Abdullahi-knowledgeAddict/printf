@@ -24,7 +24,7 @@ void ips(unsigned int i)
  * @v: variable storing the varags/ variable arguement
  * Return: the size of an integer
  */
-int dp(va_list v)
+int dp(va_list v, flag_t *f __attribute__((unused)))
 {
 	long int i;
 	int size;
@@ -46,7 +46,7 @@ int dp(va_list v)
  * @v: variable storing the varags/ variable arguement
  * Return: the size of an integer
  */
-int ip(va_list v)
+int ip(va_list v, flag_t *f __attribute__((unused)))
 {
 	int size;
 	long int i;
@@ -67,7 +67,7 @@ int ip(va_list v)
  * @v: variable storing the varags/ variable arguement
  * Return: the size of an integer
  */
-int up(va_list v)
+int up(va_list v, flag_t *f __attribute__((unused)))
 {
 	int size;
 	unsigned int i;

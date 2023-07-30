@@ -6,7 +6,7 @@
  * @v: pointer on the stack, pointing to the memory containing an address
  * Return: the length of the digits printed
  */
-int pp(va_list v)
+int pp(va_list v, flag_t *f __attribute__((unused)))
 {
 	unsigned long addr, addr_cp;/*store, manipulate each digit of address*/
 	short len, len_cp;/*to get the length, and indent through buffer */
@@ -46,4 +46,17 @@ int pp(va_list v)
 	write(1, buff, len);
 	free(buff);/*freeing manually allocated memory*/
 	return (len);/*the number of byte written to stdout*/
+}
+
+/**
+ * de_init - de-initializes flags presence after use
+ * @flags: pointer to array of flag struct
+ */
+void de_init(flag_t *flags)
+{
+	while (flags->f)
+	{
+		flags->b = 0;
+		flags++;
+	}
 }

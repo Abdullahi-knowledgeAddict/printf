@@ -39,7 +39,7 @@ int nsc(va_list v, int  base, int X)
  * @v: the pointer to the present argument of the variadic arguments
  * Return: the number of byte "formatted to stdout"
  */
-int pb(va_list v)
+int pb(va_list v, flag_t *f __attribute__((unused)))
 {
 	return (nsc(v, 2, 0));
 }
@@ -48,7 +48,7 @@ int pb(va_list v)
  * @v: the pointer to the present argument of the variadic arguments
  * Return: the number of byte "formatted to stdout"
  */
-int po(va_list v)
+int po(va_list v, flag_t *f __attribute__((unused)))
 {
 	return (nsc(v, 8, 0));
 }
@@ -58,7 +58,7 @@ int po(va_list v)
  * @v: the pointer to the present argument of the variadic arguments
  * Return: the number of byte "formatted to stdout"
  */
-int px(va_list v)
+int px(va_list v, flag_t *f __attribute__((unused)))
 {
 	return (nsc(v, 16, 87));
 }
@@ -68,7 +68,7 @@ int px(va_list v)
  * @v: the pointer to the present argument of the variadic arguments
  * Return: the number of byte "formatted to stdout"
  */
-int pX(va_list v)
+int pX(va_list v, flag_t *f __attribute__((unused)))
 {
 	return (nsc(v, 16, 55));
 }
